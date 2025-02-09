@@ -27,6 +27,8 @@ function mytemplate_menus()
 }
 add_action('init', 'mytemplate_menus');
 
+
+//Widget registration, to be able to add custom widgets in different parts of the website
 function mytemplate_widgets_areas()
 {
     register_sidebar(
