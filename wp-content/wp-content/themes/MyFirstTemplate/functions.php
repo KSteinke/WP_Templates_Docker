@@ -25,6 +25,23 @@ function mytemplate_menus()
     );
     register_nav_menus($locations);
 }
-add_action('init', 'mytemplate_menus')
+add_action('init', 'mytemplate_menus');
+
+function mytemplate_widgets_areas()
+{
+    register_sidebar(
+        array(
+            'before_title' => '',
+            'after_title' => '',
+            'before_widget' => '',
+            'after_widget' => '',
+            'name' => 'Sidebar Area',
+            'id' => 'sidebar-1',
+            'description' => 'Sidebar Widget Area'
+        )
+    );
+}
+
+add_action('widgets_init', 'mytemplate_widgets_areas');
 
 ?>

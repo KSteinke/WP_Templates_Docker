@@ -1,6 +1,3 @@
-<!-- Template for static websites , only for static websites -->
-
-
 <?php get_header(); ?>
     <!-- this is a landing page site -->
     <?php 
@@ -8,8 +5,7 @@
             while ( have_posts() ) 
             {
                 the_post();
-                the_content();
-                the_post_thumbnail();
+                get_template_part('templates-parts/content', 'page');
             }
         }
     ?>

@@ -5,8 +5,7 @@
             while ( have_posts() ) 
             {
                 the_post();
-                the_content();
-                the_post_thumbnail();
+                get_template_part('templates-parts/content', 'article');
             }
         }
     ?>
