@@ -1,3 +1,16 @@
-<!-- Template for static websites  -->
+<!-- Template for static websites , only for static websites -->
 
-<h1>To jest statyczna strona</h1>
+
+<?php get_header(); ?>
+    <!-- this is a landing page site -->
+    <?php 
+        if ( have_posts() ) {
+            while ( have_posts() ) 
+            {
+                the_post();
+                the_content();
+                the_post_thumbnail();
+            }
+        }
+    ?>
+<?php get_footer(); ?>

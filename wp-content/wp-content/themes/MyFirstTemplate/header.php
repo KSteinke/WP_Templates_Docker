@@ -7,9 +7,20 @@
 </head>
 <body>
     <header>
-        <h1><?php bloginfo( 'name' ); ?></h1>
-        <p><?php bloginfo( 'description' ); ?></p>
+        <h1>
+            <?php bloginfo( 'name' ); ?>
+        </h1>
+        <p>
+            <?php bloginfo( 'description' ); ?>
+        </p>
         <nav>
-            <?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
+            <?php wp_nav_menu( 
+                array( 
+                    'menu' => 'primary',
+                    'container' => '',
+                    'theme_location' => 'primary',
+                    'items_wrap' => '%3$s'
+                    ) ); 
+            ?>
         </nav>
     </header>
