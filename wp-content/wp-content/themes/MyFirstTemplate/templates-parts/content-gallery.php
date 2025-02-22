@@ -1,9 +1,9 @@
-<div class="header_post">
-            <?php echo get_the_title();?>
-        </div>
+<div class="header_post_center">
+    <?php echo get_the_title();?>
+</div>
 <?php
-    $images = get_attached_media('image', get_the_ID());
-    $images = array_slice($images, 0, 4); // Pobiera tylko pierwsze 4 obrazy
+    $images = get_attached_media('image', get_the_ID());   
+    $images = array_slice($images, 0, 4); // Takes only 4 attached media obj
 
     if ($images) {
         echo '<div>';

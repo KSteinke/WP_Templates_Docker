@@ -104,6 +104,32 @@ body {
     border-color: black;
 }
 
+.container_black{
+    background-color: black;
+    color: #C3EBFF;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+.container{
+    background-color: white;
+    color: black;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+.container_content
+{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    background-color: inherit;
+    color: inherit;
+    display: flex; 
+    gap: 5vh;
+}
+
 .container_post{
     margin-top: 5vh;
     margin-bottom: 5vh;
@@ -132,6 +158,12 @@ body {
 
 .header_post{
     text-align: left;
+    font-weight: bold;
+    font-size: 64px;
+}
+
+.header_post_center{
+    text-align: center;
     font-weight: bold;
     font-size: 64px;
 }

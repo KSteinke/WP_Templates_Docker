@@ -1,60 +1,61 @@
 <?php get_header(); ?>
-    <!-- this is a landing page site -->
+    <!-- This is a landing page site -->
+
+
+    <!-- Landing Page Top Section -->
+<div>  
     <?php 
         if ( have_posts() ) {
             while ( have_posts() ) 
             {
                 the_post();
+                get_template_part('templates-parts/content', 'landing-hero');
             }
         }
     ?>
-<!-- Landing Page Top Section -->
-<div id="landingpage-hero" class="landingpage-hero" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>');">
-    <div class="landing-hero-call-to-action">
-        <div class="title text-break text-landing-hero">
-            <?php echo get_the_title()?>
-        </div>
-        <div class="subtitle">
-            <?php echo get_the_excerpt();?>
-        </div>
-        <button class="btn-text btn dropdown-shadow">Wyceń zamówienie!</button>
-    </div>
 </div>
+
 
 <!-- About Us Page Top Section -->
-<div>
-    <?php
-        $latest_posts = get_posts(array(
-            'post_type'     => 'post',  
-            'category_name' => 'ONas',  // Filtruje tylko posty z kategorii "Nic"
-            'numberposts'   => 1        // Pobiera tylko jeden post
-        ));
+<?php
+    $latest_posts = get_posts(array(
+        'post_type'     => 'post',  
+        'category_name' => 'ONas',  // Filtruje tylko posty z kategorii "Nic"
+        'numberposts'   => 1        // Pobiera tylko jeden post
+    ));
+?>
+<div class="container">
+    <div class="container_content">
+        <?php
+            foreach ($latest_posts as $post) :
+                setup_postdata($post);
+                // Załadowanie szablonu content-article.php
+                get_template_part('templates-parts/content', 'aboutus');
+            endforeach;
 
-        foreach ($latest_posts as $post) :
-            setup_postdata($post);
-            // Załadowanie szablonu content-article.php
-            get_template_part('templates-parts/content', 'article');
-        endforeach;
-
-        // Reset globalnego obiektu posta
-        wp_reset_postdata();
-    ?>
+            // Reset globalnego obiektu posta
+            wp_reset_postdata();
+        ?>
+    </div>
 </div>
 
+
 <!-- Services Page Top Section -->
-<div class="container_services">
-    <div class="header_container">
-        Usługi
+<?php
+    $category = 'Usługi';
+    $latest_posts = get_posts(array(
+        'post_type'     => 'post',  
+        'category_name' => $category,  // Filtruje tylko posty z kategorii "Nic"
+        'numberposts'   => 3,       // Pobiera tylko jeden post
+        'orderby'        => 'date',  // Kryterium sortowania (np. date, title, rand)
+        'order'          => 'DESC'   // Kolejność (ASC – rosnąco, DESC – malejąco)
+    ));
+?>
+<div class="container_black">
+    <div class="header_post_center">
+        <?php echo $category ?>
     </div>
     <?php
-        $latest_posts = get_posts(array(
-            'post_type'     => 'post',  
-            'category_name' => 'Usługi',  // Filtruje tylko posty z kategorii "Nic"
-            'numberposts'   => 3,       // Pobiera tylko jeden post
-            'orderby'        => 'date',  // Kryterium sortowania (np. date, title, rand)
-            'order'          => 'DESC'   // Kolejność (ASC – rosnąco, DESC – malejąco)
-        ));
-
         foreach ($latest_posts as $post) :
             setup_postdata($post);
             // Załadowanie szablonu content-article.php
@@ -66,17 +67,19 @@
     ?>
 </div>
 
-<!-- Service gallery section -->
-<div class="container_gallery">
-    <?php
-        $latest_posts = get_posts(array(
-            'post_type'     => 'post',  
-            'category_name' => 'Gallery',  // Filtruje tylko posty z kategorii "Nic"
-        ));
 
+<!-- Gallery section -->
+<?php
+    $latest_posts = get_posts(array(
+        'post_type'     => 'post',  
+        'category_name' => 'Gallery',  // Filter posts by the category
+    ));
+?>
+<div class="container">
+    <?php
         foreach ($latest_posts as $post) :
             setup_postdata($post);
-            // Załadowanie szablonu content-article.php
+            // Załadowanie szablonu content-gallery.php
             get_template_part('templates-parts/content', 'gallery');
         endforeach;
 
@@ -85,50 +88,4 @@
     ?>
 </div>
 
-
-
-
-
-
-
-<!-- <main class="container">
-    <h2>Ostatnie wpisy</h2>
-    <div class="post-list">
-    
-        <?php
-        /*
-        $latest_posts = get_posts(array(
-            'numberposts' => 3,  // Pobiera 3 ostatnie posty
-            'post_type'   => 'post',  // Tylko wpisy
-            'category_name' => 'Nic'  // Filtruje tylko posty z kategorii "ONas"
-        ));
-
-        foreach ($latest_posts as $post) :
-            setup_postdata($post);
-        ?>
-        
-            <article class="post-item">
-                <a href="<?php the_permalink(); ?>">
-                    <?php if (has_post_thumbnail($post->ID)) : ?>
-                        <div class="post-thumbnail">
-                            <?php echo get_the_post_thumbnail($post->ID, 'medium'); ?>
-                        </div>
-                    <?php endif; ?>
-                    <h3><?php echo get_the_title($post->ID); ?></h3>
-                </a>
-                <p class="post-excerpt"><?php echo get_the_excerpt($post->ID); ?></p>
-                <a href="<?php the_permalink(); ?>" class="read-more">Czytaj więcej</a>
-            </article>
-        <?php
-
-        
-        endforeach;
-        wp_reset_postdata();
-        */
-        ?>
-    </div>
-</main> -->
-
-
-    
 <?php get_footer(); ?>

@@ -1,4 +1,4 @@
-<div class="container_post_small">
+<div class="container_content">
     <img class="img_post_small" src="<?php echo get_the_post_thumbnail_url(); ?>">
     <div>
         <div class="header_post_small">
