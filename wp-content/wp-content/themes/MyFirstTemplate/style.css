@@ -9,3 +9,173 @@ License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: my-custom-theme
 */
+
+.landingpage-hero {
+    background-size: cover; /* Dopasowuje zdjęcie do rozmiaru elementu */
+    background-position: center; /* Wyśrodkowuje zdjęcie */
+    height: 77vh; /* Wysokość na 77% wysokości okna przeglądarki */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black; /* Kolor tekstu */
+    text-align: center; /* Wyrównanie tekstu */
+}
+
+body {
+    margin: 0; /* Usunięcie domyślnych marginesów */
+    font-family: "Oxanium", serif;
+}
+
+
+/* Landing hero css */
+.title{
+    font-size: 64px;
+    font-weight: bold;
+}
+.subtitle{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.text-break{
+    overflow-wrap: break-word; /* Nowszy sposób - zalecany */
+    width: 30vw;
+    line-height: 90%; /* 90% domyślnej wysokości linii */
+}
+
+.landing-hero-call-to-action
+{
+    text-align: left;
+    position: relative;
+    top: -5%; /* Do góry */
+    left: -20%;
+}
+
+/* button css */
+.btn-text{
+    font-family: "Oxanium", serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    transition: transform 0.2s ease-in-out
+}
+.btn-text:hover{
+    transform: scale(1.05); /* Powiększenie o 5% */
+}
+
+.btn{
+    background-color: black;
+    border: 3px solid black;
+    border-radius: 20px;
+    height: 7vh;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out
+}
+
+.btn:hover {
+    transform: scale(1.05); /* Powiększenie o 5% */
+    border: 3px solid;
+    border-color: black;
+}
+
+.btn:active {
+    transform: scale(1.05); /* Powiększenie o 5% */
+    color: black; /* Biały tekst */
+    background-color: #C3EBFF; /* Ciemniejszy niebieski */
+}
+
+.dropdown-shadow {
+    box-shadow: -8px 8px 15px rgba(0, 0, 0, 0.7); /* Cień */
+}
+
+
+.btn{
+    background-color: black;
+    border: 3px solid black;
+    border-radius: 20px;
+    height: 7vh;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out
+}
+
+.btn:hover {
+    transform: scale(1.05); /* Powiększenie o 5% */
+    border: 3px solid;
+    border-color: black;
+}
+
+.container_post{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    background-color: white;
+    display: flex;
+    gap: 5vh;
+}
+
+.img_post{
+    height: 35vh;
+    width: auto;
+    max-width: 35vh;
+    border-radius: 25px;
+    border: 3px solid black;
+    object-fit: cover;
+}
+
+.text_post {
+    text-align: justify;
+    text-justify: inter-word; /* Lepsze rozmieszczenie słów */
+    hyphens: auto; /* Automatyczne dzielenie wyrazów */
+    font-size: 24px;
+}
+
+.header_post{
+    text-align: left;
+    font-weight: bold;
+    font-size: 64px;
+}
+
+.img_post_small{
+    height: 25vh;
+    width: auto;
+    max-width: 25vh;
+    border-radius: 25px;
+    border: 3px solid #C3EBFF;
+    object-fit: cover;
+}
+
+.header_post_small{
+    text-align: left;
+    font-weight: bold;
+    font-size: 48px;
+}
+.container_post_small{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    background-color: inherit;
+    display: flex;
+    gap: 5vh;
+}
+
+.text_post_small {
+    text-align: justify;
+    text-justify: inter-word; /* Lepsze rozmieszczenie słów */
+    hyphens: auto; /* Automatyczne dzielenie wyrazów */
+    font-size: 20px;
+}
+.container_services{
+    background-color: black;
+    color: #C3EBFF;
+    text-align: center;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+.header_container{
+    font-weight: bold;
+    font-size: 64px;
+}
+

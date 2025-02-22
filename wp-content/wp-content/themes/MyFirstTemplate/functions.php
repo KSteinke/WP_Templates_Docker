@@ -46,4 +46,43 @@ function mytemplate_widgets_areas()
 
 add_action('widgets_init', 'mytemplate_widgets_areas');
 
+
+
+
+// New post type registration
+/*
+function custom_post_type() {
+
+    $args = array(
+        'labels' => array(
+            'name'               => 'About Us', // Nazwa typu postu w liczbie mnogiej
+            'singular_name'      => 'About Us',  // Nazwa typu postu w liczbie pojedynczej
+            'add_new'            => 'Add new',
+            'add_new_item'       => 'Add new post',
+            'edit_item'          => 'Edit post',
+            'new_item'           => 'New post',
+            'view_item'          => 'View post',
+            'search_items'       => 'Search post',
+            'not_found'          => 'Not found',
+            'not_found_in_trash' => 'Not found in trash',
+            'all_items'          => 'All items',
+            'menu_name'          => 'About Us',
+            'name_admin_bar'     => 'About Us',
+        ),
+        'public'              => true, // Typ postu jest publiczny (widoczny na stronie)
+        'has_archive'         => true, // Archiwum tego typu postu
+        'show_ui'             => true, // Pokazywanie UI w panelu admina
+        'show_in_menu'        => true, // Pokazywanie w menu admina
+        'rewrite'             => array('slug' => 'aboutus'), // Ustawienie niestandardowego URL (np. /produkty)
+        'supports'            => array('title', 'editor', 'thumbnail', 'custom-fields'), // Czego oczekujesz od edytora (np. tytuł, treść, obrazek, itd.)
+        'taxonomies'          => array('category', 'post_tag'), // Dodanie standardowych kategorii i tagów
+        'menu_icon'           => 'dashicons-cart', // Ikona w menu (np. ikona koszyka)
+    );
+    
+    register_post_type('aboutus', $args); // Rejestracja typu postu 'aboutus'
+}
+
+// Akcja rejestrująca typ postu
+add_action('init', 'custom_post_type');
+*/
 ?>
