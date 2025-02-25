@@ -46,7 +46,10 @@ function mytemplate_widgets_areas()
 
 add_action('widgets_init', 'mytemplate_widgets_areas');
 
-
+function custom_enqueue_scripts() {
+    wp_enqueue_script('custom-menu', get_template_directory_uri() . '/js/menu.js', array(), null, true);
+}
+add_action('wp_enqueue_scripts', 'custom_enqueue_scripts');
 
 
 // New post type registration

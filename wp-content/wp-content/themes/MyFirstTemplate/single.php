@@ -1,19 +1,7 @@
 <?php get_header(); ?>
     <!-- this is a landing page site -->
-    
-    <?php 
-    /*
-        if ( have_posts() ) {
-            while ( have_posts() ) 
-            {
-                the_post();
-                the_content();
-            }
-        }
-            */
-    ?>
 
-    <div class="container_post">
+    <div class="container_content">
         <img class="img_post" src="<?php echo get_the_post_thumbnail_url(); ?>">
         <div>
             <div class="header_post">

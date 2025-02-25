@@ -25,18 +25,18 @@
     ));
 ?>
 <div class="container">
-    <div class="container_content">
-        <?php
-            foreach ($latest_posts as $post) :
-                setup_postdata($post);
-                // Załadowanie szablonu content-article.php
-                get_template_part('templates-parts/content', 'aboutus');
-            endforeach;
+    
+    <?php
+        foreach ($latest_posts as $post) :
+            setup_postdata($post);
+            // Załadowanie szablonu content-article.php
+            get_template_part('templates-parts/content', 'aboutus');
+        endforeach;
 
-            // Reset globalnego obiektu posta
-            wp_reset_postdata();
-        ?>
-    </div>
+        // Reset globalnego obiektu posta
+        wp_reset_postdata();
+    ?>
+    
 </div>
 
 
@@ -81,6 +81,27 @@
             setup_postdata($post);
             // Załadowanie szablonu content-gallery.php
             get_template_part('templates-parts/content', 'gallery');
+        endforeach;
+
+        // Reset globalnego obiektu posta
+        wp_reset_postdata();
+    ?>
+</div>
+
+
+<!-- Quality section -->
+<?php
+    $latest_posts = get_posts(array(
+        'post_type'     => 'post',  
+        'category_name' => 'Quality',  // Filter posts by the category
+    ));
+?>
+<div class="container_black">
+    <?php
+        foreach ($latest_posts as $post) :
+            setup_postdata($post);
+            // Załadowanie szablonu content-gallery.php
+            get_template_part('templates-parts/content', 'quality');
         endforeach;
 
         // Reset globalnego obiektu posta

@@ -24,6 +24,7 @@ Text Domain: my-custom-theme
 body {
     margin: 0; /* Usunięcie domyślnych marginesów */
     font-family: "Oxanium", serif;
+    background-color: #000; /* Ustaw kolor tła ciała na czarny */
 }
 
 
@@ -59,6 +60,10 @@ body {
     color: white;
     transition: transform 0.2s ease-in-out
 }
+
+.btn-text-xl{
+    font-size: 30px;
+}
 .btn-text:hover{
     transform: scale(1.05); /* Powiększenie o 5% */
 }
@@ -89,13 +94,8 @@ body {
 }
 
 
-.btn{
-    background-color: black;
-    border: 3px solid black;
-    border-radius: 20px;
-    height: 7vh;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out
+.btn-xl{
+    height: 9vh;
 }
 
 .btn:hover {
@@ -118,8 +118,7 @@ body {
     padding-bottom: 5vh;
 }
 
-.container_content
-{
+.container_content{
     margin-top: 5vh;
     margin-bottom: 5vh;
     margin-left: 20vw;
@@ -130,13 +129,26 @@ body {
     gap: 5vh;
 }
 
-.container_post{
+.container_content_single{
     margin-top: 5vh;
     margin-bottom: 5vh;
     margin-left: 20vw;
     margin-right: 20vw;
-    background-color: white;
-    display: flex;
+    background-color: inherit;
+    color: inherit;
+    align-items: center;
+    gap: 5vh;
+}
+
+.container_content_gallery{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    background-color: inherit;
+    color: inherit;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 kolumny o równej szerokości */
     gap: 5vh;
 }
 
@@ -149,26 +161,8 @@ body {
     object-fit: cover;
 }
 
-.text_post {
-    text-align: justify;
-    text-justify: inter-word; /* Lepsze rozmieszczenie słów */
-    hyphens: auto; /* Automatyczne dzielenie wyrazów */
-    font-size: 24px;
-}
 
-.header_post{
-    text-align: left;
-    font-weight: bold;
-    font-size: 64px;
-}
-
-.header_post_center{
-    text-align: center;
-    font-weight: bold;
-    font-size: 64px;
-}
-
-.img_post_small{
+.img_post-small{
     height: 25vh;
     width: auto;
     max-width: 25vh;
@@ -177,37 +171,238 @@ body {
     object-fit: cover;
 }
 
+.img_post-xl{
+    height: 55vh;
+    width: auto;
+    max-width: 55vh;
+    border-radius: 25px;
+    border: 3px solid #C3EBFF;
+    object-fit: cover;
+}
+
+.img_gallery{
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ucina obraz do idealnego kwadratu */
+    transform: translate(-50%, -50%); /* Centrowanie obrazu */
+    border-radius: 25px;
+    border: 3px solid black;
+}
+
+.gallery-item {
+    width: 100%; /* Każdy element zajmuje całą szerokość kolumny */
+    position: relative; /* Pozycjonowanie względem obrazka */
+    padding-top: 100%; /* Ustalona wysokość na 100% szerokości – tworzy kwadrat */
+    overflow: hidden; /* Ukrywa nadmiar obrazka */
+    border-radius: 8px; /* Opcjonalnie: zaokrąglone rogi */
+    border-radius: 25px;
+    border: 3px solid black;
+}
+
+.gallery-item img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ucina obraz do idealnego kwadratu */
+    transform: translate(-50%, -50%); /* Centrowanie obrazu */
+}
+
+.text_post {
+    text-align: justify;
+    text-justify: inter-word; /* Lepsze rozmieszczenie słów */
+    hyphens: auto; /* Automatyczne dzielenie wyrazów */
+    font-size: 24px;
+}
+
+.text_post-small {
+    color: white;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.header_post{
+    text-align: left;
+    font-weight: bold;
+    font-size: 55px;
+}
+
+.header_post_center{
+    text-align: center;
+    font-weight: bold;
+    font-size: 64px;
+}
+
 .header_post_small{
     text-align: left;
     font-weight: bold;
     font-size: 48px;
 }
-.container_post_small{
+
+.header_nav{
+    text-align: left;
+    font-weight: 500;
+    font-size: 38px;
+}
+
+.gallery-item:hover {
+    transform: scale(1.2); /* Powiększenie o 5% */
+    z-index: 100;
+    border: 3px solid;
+    border-color: black;
+}
+.separator-outter{
+    background-color: black;
+}
+.separator-inner{
+    align-items: center;
+    height: 3px;
+    background-color: #C3EBFF;
+    margin-left: 20vw;
+    margin-right: 20vw;
+}
+
+
+
+
+
+/* Stałe menu na górze */
+.fixed-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 1); /* Tło menu */
+    color: white;
+    padding: 6px 18px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.5s ease; /* Płynna animacja zmiany opacity */
+}
+
+/* Styl dla desktopowego menu */
+.desktop-menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.desktop-menu li {
+    display: inline;
+}
+
+.desktop-menu a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Ukrycie menu mobilnego na starcie */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background: #222;
+    padding: 20px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.mobile-menu a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+}
+
+/* Gdy menu jest otwarte */
+.mobile-menu.active {
+    transform: translateX(0);
+}
+
+/* Styl dla hamburgera */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 3px;
+    background: white;
+    margin: 6px 0;
+}
+
+.nav_end{
+    font-weight: 600;
+    font-size: larger;
+    gap: 0.75vh;
+    margin-right: 5vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.container_footer{
+    display: grid;
     margin-top: 5vh;
     margin-bottom: 5vh;
     margin-left: 20vw;
     margin-right: 20vw;
-    background-color: inherit;
-    display: flex;
+    grid-template-columns: 5fr 4fr; 
     gap: 5vh;
 }
 
-.text_post_small {
-    text-align: justify;
-    text-justify: inter-word; /* Lepsze rozmieszczenie słów */
-    hyphens: auto; /* Automatyczne dzielenie wyrazów */
-    font-size: 20px;
-}
-.container_services{
-    background-color: black;
-    color: #C3EBFF;
-    text-align: center;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
+.container_map{
+    
 }
 
-.header_container{
-    font-weight: bold;
-    font-size: 64px;
+.map{
+    border: 5px solid #C3EBFF;
+    border-radius: 20px;
+    width: 100%;
+    
+}
+
+.footer_text{
+    color: white;
+    justify-self: center;
+    align-content: center;
+    font-weight:600;
+    font-size: 36px;
+}
+
+.footer_text_element{
+    margin: 3vh 0;
+}
+
+.sign{
+    color: white;
+    justify-self: center;
+    align-content: center;
+}
+
+/* Ukrycie desktopowego menu i pokazanie hamburgera na mobile */
+@media screen and (max-width: 768px) {
+    .desktop-menu {
+        display: none;
+    }
+    .hamburger {
+        display: flex;
+    }
 }
 
